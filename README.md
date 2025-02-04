@@ -1,1 +1,2 @@
-# hw3
+# pyjan2025
+Python test automation course
