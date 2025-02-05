@@ -1,2 +1,2 @@
 # pyjan2025
-Python test automation course
+Katya Gonchar - Python test automation course - January 2025
