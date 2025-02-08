@@ -1,6 +1,6 @@
 # task1
 text = "www.my_site.com#about"
-print(text.replace("#","/"))
+print(text.replace("#", "/"))
 # task2
 S1 = "test"
 S2 = "sleep"
