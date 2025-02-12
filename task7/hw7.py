@@ -15,9 +15,7 @@ print(result)
 
 # time converter
 time = input("Введите время ЧЧ:ММ: ")
-hours, minutes = time.split(":")
-hours = int(hours)
-minutes = int(minutes)
+hours, minutes = [int(i) for i in time.split(":")]
 if hours < 12:
     period = "a.m."
 else:
