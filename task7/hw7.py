@@ -26,7 +26,4 @@ if hours == 0:
     hours = 12
 elif hours > 12:
     hours -= 12
-if hours < 10:
-    print(f"{hours}:{minutes:02} {period}")
-else:
-    print(f"{hours}:{minutes:02} {period}")
+print(f"{hours}:{minutes:02} {period}")
