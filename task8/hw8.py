@@ -27,5 +27,8 @@ while i <= n:
 a = [6, 2, 3, 8]
 m1 = min(a)
 m2 = max(a)
-b = (m1 - m2 + 1) - len(a)
+b = 0
+for i in range(m1, m2 + 1):
+    if i not in a:
+        b += 1
 print(b)
