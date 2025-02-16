@@ -17,10 +17,10 @@ print("Вы выиграли!")
 # пирамида
 n = 10
 i = 1
-l = "*"
+line = "*"
 while i <= n:
-    print ((l.center(n * 2)))
-    l += "**"
+    print((line.center(n * 2)))
+    line += "**"
     i += 1
 
 # статуи
