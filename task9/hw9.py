@@ -20,17 +20,17 @@ assert not solution([40, 50, 60, 10, 20, 30])
 
 
 # Число напротив
-def solution(n, f_number):
+def solution1(n, f_number):
     return (f_number + n / 2) % n
 
 
-assert solution(10, 6) == 1
-assert solution(10, 2) == 7
-assert solution(10, 4) == 9
+assert solution1(10, 6) == 1
+assert solution1(10, 2) == 7
+assert solution1(10, 4) == 9
 
 
 # Validate
-def solution(number):
+def solution2(number):
     if type(number) is not int or number <= 0:
         print("Этот номер не подходит")
         return False
@@ -51,15 +51,15 @@ def solution(number):
     return total_sum % 10 == 0
 
 
-assert not solution(4561261212345464)
-assert solution(4561261212345467)
-assert solution(378282246310005)  # Amex
-assert solution(5610591081018250)  # Australian
-assert solution(30569309025904)  # Diners
-assert solution(6011111111111117)  # Discover
-assert solution(3530111333300000)  # JCB
-assert solution(5555555555554444)  # MasterCard
-assert solution(4111111111111111)  # Visa
-assert solution(4222222222222)  # Visa short
-assert solution(76009244561)  # Dankort short
-assert solution(6331101999990016)  # Paymentech
+assert not solution2(4561261212345464)
+assert solution2(4561261212345467)
+assert solution2(378282246310005)  # Amex
+assert solution2(5610591081018250)  # Australian
+assert solution2(30569309025904)  # Diners
+assert solution2(6011111111111117)  # Discover
+assert solution2(3530111333300000)  # JCB
+assert solution2(5555555555554444)  # MasterCard
+assert solution2(4111111111111111)  # Visa
+assert solution2(4222222222222)  # Visa short
+assert solution2(76009244561)  # Dankort short
+assert solution2(6331101999990016)  # Paymentech
