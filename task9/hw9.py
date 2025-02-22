@@ -18,6 +18,7 @@ assert not solution([1, 3, 2, 1])
 assert not solution([1, 2, 3, 4, 5, 3, 5, 6])
 assert not solution([40, 50, 60, 10, 20, 30])
 
+
 # Число напротив
 def solution(n, f_number):
     return (f_number + n / 2) % n
@@ -26,6 +27,7 @@ def solution(n, f_number):
 assert solution(10, 6) == 1
 assert solution(10, 2) == 7
 assert solution(10, 4) == 9
+
 
 # Validate
 def solution(number):
@@ -59,5 +61,5 @@ assert solution(3530111333300000)  # JCB
 assert solution(5555555555554444)  # MasterCard
 assert solution(4111111111111111)  # Visa
 assert solution(4222222222222)  # Visa short
-assert solution(76009244561) #Dankort short
+assert solution(76009244561)  # Dankort short
 assert solution(6331101999990016)  # Paymentech
