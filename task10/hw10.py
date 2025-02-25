@@ -23,6 +23,7 @@ def solution1(candle_number, make_new):
     burnt = candle_number
     remains = candle_number
 
+
     while remains >= make_new:
         new_candles = remains // make_new
         burnt += new_candles
@@ -43,6 +44,7 @@ assert solution1(2, 3) == 2
 def solution2(text):
     if not text:
         return ""
+
 
     shrt = ""
     i = 0
