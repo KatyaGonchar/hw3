@@ -59,36 +59,28 @@ first_element([-5.7, 13, 42])
 
 # Декоратор типов
 
-def typed(type_):
+def typed(type):
     def decorator(add):
         def wrapper(*args):
-            converted_args = [type_(arg) for arg in args]
-            return add(*converted_args)
+            for t in type:
+                if any(isinstance(arg, t) for arg in args):
+                    converted_args = [t(arg) for arg in args]
+                    return add(*converted_args)
+            return add(*args)
         return wrapper
     return decorator
 
 
-@typed(type_=str)
-def add(a, b):
-    return a + b
+@typed(type=[str, float, int])
+def add(*args):
+    result = args[0]
+    for arg in args[1:]:
+        result += arg
+    return result
 
 
 assert add("3", 5) == "35"
-assert add(5, 5) == "55"
+assert add(5, "5") == "55"
 assert add('a', 'b') == "ab"
-
-
-@typed(type_=int)
-def add(a, b, c):
-    return a + b + c
-
-
 assert add(5, 6, 7) == 18
-
-
-@typed(type_=float)
-def add(a, b, c):
-    return a + b + c
-
-
 assert add(0.1, 0.2, 0.4) == 0.7000000000000001
