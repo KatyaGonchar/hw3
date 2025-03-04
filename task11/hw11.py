@@ -41,9 +41,8 @@ def result_isnumber(first_element):
     def wrapper(lst):
         result = first_element(lst)
         if isinstance(result, (int, float)):
-            print(result)
-        else:
-            print("Ошибка: первый элемент не является числом!")
+            return result
+        return "Ошибка: первый элемент не является числом!"
     return wrapper
 
 
@@ -52,9 +51,9 @@ def first_element(lst):
     return lst[0]
 
 
-first_element([10, 20, 30])
-first_element(['a', 2, 3])
-first_element([-5.7, 13, 42])
+print(first_element([10, 20, 30]))
+print(first_element(['a', 2, 3]))
+print(first_element([-5.7, 13, 42]))
 
 
 # Декоратор типов
