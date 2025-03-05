@@ -21,13 +21,13 @@ class Bank:
             print("Ошибка: Клиент не зарегистрирован!")
             return
         if self.deposit_balance is None:
-            print ("Ошибка! Отсутствует действующий вклад.")
+            print("Ошибка! Отсутствует действующий вклад.")
             return
 
         P = self.deposit_balance
         years = self.deposit_years
         r = 0.1  # 10% годовых
-        final_balance = round (P * (1 + r / 12) ** (12 * years), 2)
+        final_balance = round(P * (1 + r / 12) ** (12 * years), 2)
         print(f"Финальная сумма по истечении срока вклада: {final_balance}.")
         return final_balance
 
@@ -47,10 +47,12 @@ client_id = "0000001"
 bank = Bank()
 bank.register_client(client_id=client_id, name="Siarhei")
 bank.open_deposit_account(client_id=client_id, start_balance=1000, years=1)
-assert bank.calc_deposit_interest_rate(client_id=client_id) == 1104.71, "Ошибка: Неверная итоговая сумма по вкладу."
+assert bank.calc_deposit_interest_rate(client_id=client_id) == 1104.71, \
+    "Ошибка: Неверная итоговая сумма по вкладу."
 bank.close_deposit(client_id=client_id)
 
 # Библиотека
+
 
 class Book:
     def __init__(self, book_name, author, num_pages, isbn):
@@ -102,6 +104,7 @@ class Book:
             self.taken_by = None
         else:
             print("User can not return a book")
+
 
 class Reader:
     def __init__(self, name):
