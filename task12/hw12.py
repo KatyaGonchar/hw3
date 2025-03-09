@@ -6,41 +6,43 @@ class Bank:
         self.client_id = client_id
         self.client_name = name
         print(f"Клиент {self.client_name} успешно зарегистрирован.")
+        return True
 
     def open_deposit_account(self, client_id, start_balance, years):
         if self.client_id != client_id:
             print("Ошибка! Клиент не зарегистрирован.")
-            return
+            return False
 
         self.deposit_balance = start_balance
         self.deposit_years = years
         print(f"Вклад для {self.client_name} открыт. Стартовая сумма: {self.deposit_balance}.")
+        return True
 
     def calc_deposit_interest_rate(self, client_id):
         if self.client_id != client_id:
             print("Ошибка: Клиент не зарегистрирован!")
-            return
+            return False
         if self.deposit_balance is None:
             print("Ошибка! Отсутствует действующий вклад.")
-            return
+            return False
 
-        P = self.deposit_balance
-        years = self.deposit_years
-        r = 0.1  # 10% годовых
-        final_balance = round(P * (1 + r / 12) ** (12 * years), 2)
+        rate = 0.1  # 10% годовых
+        final_balance = round(self.deposit_balance * (1 + rate / 12) ** (12 * self.deposit_years), 2)
         print(f"Финальная сумма по истечении срока вклада: {final_balance}.")
         return final_balance
 
     def close_deposit(self, client_id):
         if self.client_id != client_id:
             print("Ошибка: Клиент не зарегистрирован!")
-            return
+            return False
         if self.deposit_balance is None:
             print("Вклад уже закрыт или не был открыт.")
+            return False
         else:
             print(f"Вклад для {self.client_name} закрыт.")
             self.deposit_balance = None
             self.deposit_years = None
+            return True
 
 
 client_id = "0000001"
@@ -66,44 +68,47 @@ class Book:
 
     def reserve(self, reader):
         if self.status == "reserved" and self.reserved_by == reader:
-            return
+            return True # The user is trying to re-reserve a book, not an error
         elif self.status == "free":
             self.status = "reserved"
             self.reserved_by = reader
-        elif self.status == "taken":
-            print("User can not reserve a book, the book is already taken.")
+            return True
         else:
-            print("User can not reserve a book")
+            return False
 
     def cancel_reserve(self, reader):
         if self.status != "reserved":
-            return
+            return True # The book is not reserved by anyone, not an error
         elif self.status == "reserved" and self.reserved_by == reader:
             self.status = "free"
             self.reserved_by = None
+            return True
         else:
-            print("User can not cancel a reservation")
+            return False
 
     def get_book(self, reader):
         if self.status == "taken" and self.taken_by == reader:
-            return
+            return True # The user is trying to take a book he already has, not an error
         elif self.status == "reserved" and self.reserved_by == reader:
             self.status = "taken"
             self.taken_by = reader
+            return True
         elif self.status == "free":
             self.status = "taken"
             self.taken_by = reader
+            return True
         else:
-            print("User can not get a book")
+            return False
 
     def return_book(self, reader):
-        if self.status != "taken":
-            return
+        if self.status != "taken": # The user is trying to return a book he does not have, not an error
+            return True
         elif self.status == "taken" and self.taken_by == reader:
             self.status = "free"
             self.taken_by = None
+            return True
         else:
-            print("User can not return a book")
+            return False
 
 
 class Reader:
@@ -111,16 +116,24 @@ class Reader:
         self.name = name
 
     def reserve_book(self, book):
-        book.reserve(self)
+        if not book.reserve(self):
+            print(f"{self.name} can not reserve a book")
+            return False
 
     def cancel_reserve(self, book):
-        book.cancel_reserve(self)
+        if not book.cancel_reserve(self):
+            print(f"{self.name} can not cancel the reservation")
+            return False
 
     def get_book(self, book):
-        book.get_book(self)
+        if not book.get_book(self):
+            print(f"{self.name} can not get a book")
+            return False
 
     def return_book(self, book):
-        book.return_book(self)
+        if not book.return_book(self):
+            print(f"{self.name} can not return a book")
+            return False
 
 
 book = Book(book_name="The Hobbit", author="J.R.R. Tolkien", num_pages=400, isbn="0006754023")
