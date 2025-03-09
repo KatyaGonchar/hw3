@@ -27,7 +27,8 @@ class Bank:
             return False
 
         rate = 0.1  # 10% годовых
-        final_balance = round(self.deposit_balance * (1 + rate / 12) ** (12 * self.deposit_years), 2)
+        final_balance = round(
+            self.deposit_balance * (1 + rate / 12) ** (12 * self.deposit_years), 2)
         print(f"Финальная сумма по истечении срока вклада: {final_balance}.")
         return final_balance
 
@@ -68,7 +69,7 @@ class Book:
 
     def reserve(self, reader):
         if self.status == "reserved" and self.reserved_by == reader:
-            return True # The user is trying to re-reserve a book, not an error
+            return True  # The user is trying to re-reserve a book, not an error
         elif self.status == "free":
             self.status = "reserved"
             self.reserved_by = reader
@@ -78,7 +79,7 @@ class Book:
 
     def cancel_reserve(self, reader):
         if self.status != "reserved":
-            return True # The book is not reserved by anyone, not an error
+            return True  # The book is not reserved by anyone, not an error
         elif self.status == "reserved" and self.reserved_by == reader:
             self.status = "free"
             self.reserved_by = None
@@ -88,7 +89,7 @@ class Book:
 
     def get_book(self, reader):
         if self.status == "taken" and self.taken_by == reader:
-            return True # The user is trying to take a book he already has, not an error
+            return True  # The user is trying to take a book he already has, not an error
         elif self.status == "reserved" and self.reserved_by == reader:
             self.status = "taken"
             self.taken_by = reader
@@ -101,7 +102,7 @@ class Book:
             return False
 
     def return_book(self, reader):
-        if self.status != "taken": # The user is trying to return a book he does not have, not an error
+        if self.status != "taken":  # User is trying to return a book he doesn't have, not an error
             return True
         elif self.status == "taken" and self.taken_by == reader:
             self.status = "free"
