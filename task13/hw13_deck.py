@@ -21,8 +21,8 @@ class Card:
 
 class CardsDeck:
     def __init__(self):
-        self.cards = [Card(number, mast) for mast in Card.mast_list
-                      for number in Card.number_list]
+        self.cards = [Card(number, mast) for number, mast in
+                      zip(Card.number_list * 4, Card.mast_list * 13)]
         self.cards.append(Card(None, 'Joker'))
         self.cards.append(Card(None, 'Joker'))
 
