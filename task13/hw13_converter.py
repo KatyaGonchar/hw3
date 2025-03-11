@@ -83,7 +83,11 @@ converter = CurrencyConverter()
 vasya = Person("USD", 10)
 petya = Person("EUR", 5)
 
-assert converter.exchange_currency(vasya.currency, vasya.amount) == (32.69, "BYN"), "Ошибка при конвертации!"
-assert converter.exchange_currency(petya.currency, petya.amount) == (35.20, "BYN"), "Ошибка при конвертации!"
-assert converter.exchange_currency(vasya.currency, vasya.amount, "EUR") == (4.65, "EUR"), "Ошибка при конвертации!"
-assert converter.exchange_currency(petya.currency, petya.amount, "USD") == (10.76, "USD"), "Ошибка при конвертации!"
+assert converter.exchange_currency(vasya.currency, vasya.amount)\
+       == (32.69, "BYN"), "Ошибка при конвертации!"
+assert converter.exchange_currency(petya.currency, petya.amount)\
+       == (35.20, "BYN"), "Ошибка при конвертации!"
+assert converter.exchange_currency(vasya.currency, vasya.amount, "EUR")\
+       == (4.65, "EUR"), "Ошибка при конвертации!"
+assert converter.exchange_currency(petya.currency, petya.amount, "USD")\
+       == (10.76, "USD"), "Ошибка при конвертации!"

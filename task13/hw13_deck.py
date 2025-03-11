@@ -2,6 +2,7 @@
 
 import random
 
+
 class Card:
     number_list = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
     mast_list = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
@@ -17,9 +18,10 @@ class Card:
         number = figure_cards.get(self.number, self.number)
         return f'{self.mast} {number}'
 
+
 class CardsDeck:
     def __init__(self):
-        self.cards = [Card(number, mast) for mast in Card.mast_list\
+        self.cards = [Card(number, mast) for mast in Card.mast_list
                       for number in Card.number_list]
         self.cards.append(Card(None, 'Joker'))
         self.cards.append(Card(None, 'Joker'))
