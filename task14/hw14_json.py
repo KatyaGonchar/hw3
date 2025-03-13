@@ -4,6 +4,7 @@ import json
 
 filename = "football_clubs.json"
 
+
 def create_json():
     data = [
         {"name": "Bayern Munich", "country": "Germany", "wins": 80},

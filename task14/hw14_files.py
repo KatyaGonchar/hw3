@@ -37,8 +37,7 @@ for line in lines:
 
     try:
         name, group, grades = line.split(", ")
-        grades = list(map(int, grades.split()))
-
+        grades = [int(grade) if grade.isdigit() else 0 for grade in grades]
         students.append((name, group, grades))
 
         if group not in groups:

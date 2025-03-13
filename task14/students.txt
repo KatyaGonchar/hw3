@@ -1,0 +1,16 @@
+Verstappen M., F1-01, 5 4 5
+Hamilton L., F1-02, 4 4 4
+Alonso F., F1-03, 3 2 4
+Rosberg N., F1-03, 4 4 3
+Vettel S., F1-02, 1 1 1
+Raikkonen K., F1-03, 3 4 4
+
+Total number of students: 6
+Students by groups:
+F1-01: 1
+F1-02: 2
+F1-03: 3
+Average group score:
+F1-01: 2.8
+F1-02: 1.5
+F1-03: 2.07
