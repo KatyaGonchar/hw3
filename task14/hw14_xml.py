@@ -41,6 +41,7 @@ def calculate_total_cost(filename):
         print(f"Error: {e}")
         return None
 
+
 filename = "products.xml"
 data = [
     {"name": "Bananas", "price": 5, "quantity": 50},
