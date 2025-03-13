@@ -30,7 +30,7 @@ with open(filename, "w") as file:
     file.writelines(lines)
 
 students = []
-groups = {}
+groups: dict[str, list[int]] = {}
 
 for line in lines:
     line = line.strip()
