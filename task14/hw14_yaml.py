@@ -2,15 +2,8 @@
 
 import yaml
 
-filename = "books.yaml"
 
-
-def create_yaml(filename):
-    data = [
-        {"title": "1984", "author": "George Orwell", "year": 1949},
-        {"title": "Shantaram", "author": "Gregory David Roberts", "year": 2003},
-        {"title": "11/22/63", "author": "Stephen King", "year": 2011}
-    ]
+def create_yaml(filename, data):
 
     try:
         with open(filename, "w") as file:
@@ -47,5 +40,12 @@ def read_and_add_books(filename):
         print(f"Error: {e}")
 
 
-create_yaml(filename)
+filename = "books.yaml"
+data = [
+        {"title": "1984", "author": "George Orwell", "year": 1949},
+        {"title": "Shantaram", "author": "Gregory David Roberts", "year": 2003},
+        {"title": "11/22/63", "author": "Stephen King", "year": 2011}
+    ]
+
+create_yaml(filename, data)
 read_and_add_books(filename)

@@ -2,15 +2,14 @@
 
 import xml.etree.ElementTree as ET
 
-filename = "products.xml"
 
-
-def create_xml():
+def create_xml(filename, data):
     root = ET.Element("products")
 
-    ET.SubElement(root, "product", name="Bananas", price="5", quantity="50")
-    ET.SubElement(root, "product", name="Apples", price="10", quantity="100")
-    ET.SubElement(root, "product", name="Oranges", price="15", quantity="200")
+    for product in data:
+        ET.SubElement(root, "product", name=product["name"],
+                      price=str(product["price"]),
+                      quantity=str(product["quantity"]))
 
     tree = ET.ElementTree(root)
     try:
@@ -20,7 +19,7 @@ def create_xml():
         print(f"Error: {e}")
 
 
-def calculate_total_cost():
+def calculate_total_cost(filename):
     try:
         tree = ET.parse(filename)
         root = tree.getroot()
@@ -34,7 +33,7 @@ def calculate_total_cost():
 
             total_cost += price * quantity
 
-            print(f"{name}: Цена {price}, Количество {quantity}, Стоимость {price * quantity}")
+            print(f"{name}: Price {price}, Quantity {quantity}, Cost {price * quantity}")
 
         return total_cost
 
@@ -42,9 +41,15 @@ def calculate_total_cost():
         print(f"Error: {e}")
         return None
 
+filename = "products.xml"
+data = [
+    {"name": "Bananas", "price": 5, "quantity": 50},
+    {"name": "Apples", "price": 10, "quantity": 100},
+    {"name": "Oranges", "price": 15, "quantity": 200}
+]
 
-create_xml()
-total_cost = calculate_total_cost()
+create_xml(filename, data)
+total_cost = calculate_total_cost(filename)
 
 if total_cost is not None:
-    print(f"Общая стоимость всех товаров: {total_cost}")
+    print(f"Total goods cost: {total_cost}")

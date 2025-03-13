@@ -2,6 +2,7 @@
 
 import json
 
+
 def create_json(filename, data):
     try:
         with open(filename, "w") as file:
@@ -27,5 +28,14 @@ def find_most_winning_club(filename):
         print(f"Error: {e}")
 
 
+filename = "football_clubs.json"
+data = [
+        {"name": "Bayern Munich", "country": "Germany", "wins": 80},
+        {"name": "Borussia Dortmund", "country": "Germany", "wins": 60},
+        {"name": "Real Madrid", "country": "Spain", "wins": 90},
+        {"name": "FC Barcelona", "country": "Spain", "wins": 75},
+        {"name": "Paris Saint-Germain", "country": "France", "wins": 65},
+        {"name": "Olympique Marseille", "country": "France", "wins": 55},
+    ]
 create_json(filename, data)
 find_most_winning_club(filename)
