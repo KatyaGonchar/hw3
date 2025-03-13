@@ -4,8 +4,7 @@ import os
 
 
 def create_file(filename, data):
-    if not os.path.exists(filename):  # if no file in local directory,\
-    # create with data
+    if not os.path.exists(filename):  # if no file in local directory, create with data
         print("No file found. Creating a new one.")
         with open(filename, "w") as file:
             file.writelines(data)
@@ -44,6 +43,7 @@ def write_to_file(filename, total_students, students_per_group, avg_grades_per_g
 
 
 filename = "students.txt"
+
 data = [
     "Verstappen M., F1-01, 5 4 5\n",
     "Hamilton L., F1-02, 4 4 4\n",
