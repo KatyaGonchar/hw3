@@ -4,6 +4,7 @@ import yaml
 
 filename = "books.yaml"
 
+
 def create_yaml(filename):
     data = [
         {"title": "1984", "author": "George Orwell", "year": 1949},

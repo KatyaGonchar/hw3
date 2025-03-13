@@ -4,6 +4,7 @@ import re
 
 filename = "regex_1.txt"
 
+
 def find_dates_txt(filename):
 
     date_pattern = r"\b\d{2}\.\d{2}\.\d{4}\b"

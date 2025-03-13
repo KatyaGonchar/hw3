@@ -2,6 +2,7 @@
 
 import re
 
+
 def validate_password(password):
 
     pattern = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{4,}$'

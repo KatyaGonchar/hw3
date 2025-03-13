@@ -2,6 +2,7 @@
 
 import re
 
+
 def fix_repeated_words(text):
     err_pattern = r'\b(\w+)\s+\1\b'
     corrected_text = re.sub(err_pattern, r'\1', text)

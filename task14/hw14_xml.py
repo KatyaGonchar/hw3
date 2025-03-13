@@ -4,6 +4,7 @@ import xml.etree.ElementTree as ET
 
 filename = "products.xml"
 
+
 def create_xml():
     root = ET.Element("products")
 

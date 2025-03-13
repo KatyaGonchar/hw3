@@ -4,9 +4,9 @@ import os
 
 filename = "students.txt"
 
-if not os.path.exists(filename): # if no file in local directory,\
+if not os.path.exists(filename):  # if no file in local directory,\
     # create with data below
-    print(f"No file found. Creating a new one.")
+    print("No file found. Creating a new one.")
     with open(filename, "w") as file:
         file.write("Verstappen M., F1-01, 5 4 5\n")
         file.write("Hamilton L., F1-02, 4 4 4\n")
@@ -18,7 +18,7 @@ if not os.path.exists(filename): # if no file in local directory,\
 with open(filename, "r") as file:
     lines = file.readlines()
 
-for i, line in enumerate(lines): # if the program was executed before,\
+for i, line in enumerate(lines):  # if the program was executed before,\
     # wipe the results of previous calculations
     if line.startswith("Total number of students:"):
         lines = lines[:i]
