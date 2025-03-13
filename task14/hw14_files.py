@@ -30,14 +30,14 @@ with open(filename, "w") as file:
     file.writelines(lines)
 
 students = []
-groups: dict[str, list[int]] = {}
+groups = {}
 
 for line in lines:
     line = line.strip()
 
     try:
-        name, group, grades = line.split(", ")
-        grades = [int(grade) if grade.isdigit() else 0 for grade in grades.split()]
+        name, group, grades_str = line.split(", ")
+        grades = [int(grade) for grade in grades_str.split()]
         students.append((name, group, grades))
 
         if group not in groups:
