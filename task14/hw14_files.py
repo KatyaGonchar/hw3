@@ -30,14 +30,14 @@ with open(filename, "w") as file:
     file.writelines(lines)
 
 students = []
-groups = {}
+groups: dict[str, list[int]] = {}
 
 for line in lines:
     line = line.strip()
 
     try:
         name, group, grades = line.split(", ")
-        grades = [int(grade) if grade.isdigit() else 0 for grade in grades]
+        grades = [int(grade) if grade.isdigit() else 0 for grade in grades.split()]
         students.append((name, group, grades))
 
         if group not in groups:
@@ -58,7 +58,7 @@ for student in students:
 
 avg_grades_per_group = {}
 for group, grades in groups.items():
-    avg_grades_per_group[group] = round(sum(grades) / len(grades), 2)
+    avg_grades_per_group[group] = round(sum(int(grade) for grade in grades) / len(grades), 2)
 
 print(f"Total number of students: {total_students}")
 print("Students by groups:")
