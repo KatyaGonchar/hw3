@@ -26,7 +26,6 @@ class Order:
         self.status = status
         print(f"Заказ {self.order_id} успешно создан. Текущий статус: {self.status.value}")
 
-
     def update_status(self, new_status):
         if self.order_id is None:
             print(f"Ошибка: заказ с ID {self.order_id} отсутствует, статус недоступен.")
@@ -37,7 +36,6 @@ class Order:
         self.status = new_status
         print(f"Заказ {self.order_id} успешно обновлен. Текущий статус: {self.status.value}")
         return True
-
 
     def display_status(self):
         if self.order_id is None:
