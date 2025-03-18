@@ -19,8 +19,10 @@ def check_winner(board, player):
 def check_draw(board):
     return all(board[row][col] != ' ' for row in range(5) for col in range(5))
 
+
 def is_valid_move(board, row, col):
     return 0 <= row < 5 and 0 <= col < 5 and board[row][col] == ' '
+
 
 def game():
     board = [[' ' for _ in range(5)] for _ in range(5)]

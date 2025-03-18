@@ -7,8 +7,10 @@ def fun1(digits):
             digits[i] = 0
     return [1] + digits
 
+
 def number_to_list(number):
     return [int(digit) for digit in str(number) if digit.isdigit()]
+
 
 user_input = input("Enter the number: ")
 

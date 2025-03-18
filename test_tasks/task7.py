@@ -4,7 +4,7 @@ def reverse_part(s, n):
 
 
 s = "abcdefghijklmnopqrstuvwxyz"
-assert(reverse_part(s, 1)) == "a"
-assert(reverse_part(s, 2)) == "aba"
-assert(reverse_part(s, 3)) == "abcba"
-assert(reverse_part(s, 4)) == "abcdcba"
+assert reverse_part(s, 1) == "a"
+assert reverse_part(s, 2) == "aba"
+assert reverse_part(s, 3) == "abcba"
+assert reverse_part(s, 4) == "abcdcba"

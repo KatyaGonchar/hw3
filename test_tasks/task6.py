@@ -9,12 +9,14 @@ def read_file(filename):
     with open(filename, "r") as file:
         return file.readlines()
 
+
 def calculate_statistics(lines):
     total_lines = len(lines)
     total_words = sum(len(line.split()) for line in lines)
     total_chars = sum(len(line) for line in lines)
 
     return total_lines, total_words, total_chars
+
 
 def write_statistics(filename, total_lines, total_words, total_chars):
     with open(filename, "a") as file:
