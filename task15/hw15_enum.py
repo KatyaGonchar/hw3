@@ -13,10 +13,15 @@ class OrderStatus(Enum):
 
 class Order:
     def __init__(self, order_id, status=OrderStatus.PENDING):
-    self.order_id = int(order_id) if int(order_id) > 0 else None
-    self.status = OrderStatus.PENDING if int(order_id) > 0 else OrderStatus.CANCELLED
+        if order_id.isdigit() and int(order_id) > 0:
+            self.order_id = int(order_id)
+            self.status = status
+        else:
+            self.order_id = None
+            self.status = OrderStatus.CANCELLED
+            print("Ошибка: Неверный ID заказа. ID должен быть положительным числом.")
+            return
 
-        self.status = status
         print(f"Заказ {self.order_id} успешно создан. Текущий статус: {self.status.value}")
 
     def update_status(self, new_status):
@@ -41,9 +46,9 @@ class Order:
 order_id = input("Введите ID заказа: ")
 order = Order(order_id)
 
-if order.order_id is None:
-    print("Дальнейшее выполнение невозможно из-за неверного ID.")
-else:
+if order.order_id:
     order.display_status()
     order.update_status(OrderStatus.IN_PROGRESS)
     order.display_status()
+else:
+    print("Дальнейшее выполнение невозможно из-за неверного ID.")
