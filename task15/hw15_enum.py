@@ -13,15 +13,8 @@ class OrderStatus(Enum):
 
 class Order:
     def __init__(self, order_id, status=OrderStatus.PENDING):
-        try:
-            self.order_id = int(order_id)
-            if self.order_id <= 0:
-                raise ValueError
-        except (ValueError, TypeError):
-            print("Ошибка: Неверный ID заказа. ID должен быть положительным числом.")
-            self.order_id = None
-            self.status = None
-            return
+    self.order_id = int(order_id) if int(order_id) > 0 else None
+    self.status = OrderStatus.PENDING if int(order_id) > 0 else OrderStatus.CANCELLED
 
         self.status = status
         print(f"Заказ {self.order_id} успешно создан. Текущий статус: {self.status.value}")
