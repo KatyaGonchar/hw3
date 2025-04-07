@@ -31,11 +31,11 @@ class TestBankDeposit(unittest.TestCase):
 
     # Positive test: correct interest calculation
     def test_interest_formula(self):
-        start_balance = 10000
-        years = 2
-        rate = 0.1
-        expected = round(start_balance * (1 + rate / 12) ** (12 * years), 2)
-        self.assertEqual(expected, 12203.91)
+        self.bank.register_client(self.client_id, self.client_name)
+        self.bank.open_deposit_account(self.client_id, self.start_balance, self.years)
+        final_balance = self.bank.calc_deposit_interest_rate(self.client_id)
+        expected = round(self.start_balance * (1 + 0.1 / 12) ** (12 * self.years), 2)
+        self.assertEqual(final_balance, expected)
 
     # Negative test: interest calculation fails for unregistered client
     def test_calc_deposit_interest_fail_unregistered(self):
