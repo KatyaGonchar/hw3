@@ -1,6 +1,7 @@
 import logging
 import pytest
 
+
 def pytest_addoption(parser):
     parser.addoption(
         "--custom-log-level",
@@ -8,6 +9,7 @@ def pytest_addoption(parser):
         default="INFO",
         help="Set custom log level (e.g., DEBUG, INFO, WARNING, ERROR)"
     )
+
 
 @pytest.fixture(autouse=True, scope="session")
 def configure_logging(request):

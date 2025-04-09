@@ -23,6 +23,7 @@ reports/
 *.xml
 *.tmp
 *.txt
+!requirements.txt
 
 # IDE config (PyCharm / VSCode)
 .idea/
