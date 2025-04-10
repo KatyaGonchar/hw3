@@ -23,6 +23,7 @@ def reader_2():
 # Positive test: successful reservation by a reader
 def test_successful_reservation(book, reader_1):
     reader_1.reserve_book(book)
+    logger.info("Book status after reservation: %s", book.status)
     assert book.status == "reserved"
     assert book.reserved_by == reader_1
 
@@ -31,6 +32,7 @@ def test_successful_reservation(book, reader_1):
 def test_reservation_by_another_reader(book, reader_1, reader_2):
     reader_1.reserve_book(book)
     result = reader_2.reserve_book(book)
+    logger.warning("Repeated reservation attempt by another reader: %s", result)
     assert result is False
 
 
@@ -38,6 +40,7 @@ def test_reservation_by_another_reader(book, reader_1, reader_2):
 def test_get_reserved_book(book, reader_1):
     reader_1.reserve_book(book)
     reader_1.get_book(book)
+    logger.info("Book status after being taken: %s", book.status)
     assert book.status == "taken"
     assert book.taken_by == reader_1
 
@@ -46,6 +49,7 @@ def test_get_reserved_book(book, reader_1):
 def test_failed_return_by_another(book, reader_1, reader_2):
     reader_1.get_book(book)
     result = reader_2.return_book(book)
+    logger.warning("Wrong return attempt by another reader: %s", result)
     assert result is False
 
 
@@ -53,5 +57,6 @@ def test_failed_return_by_another(book, reader_1, reader_2):
 def test_successful_return(book, reader_1):
     reader_1.get_book(book)
     reader_1.return_book(book)
+    logger.info("Book status after return: %s", book.status)
     assert book.status == "free"
     assert book.taken_by is None
