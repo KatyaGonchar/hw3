@@ -1,0 +1,35 @@
+# Python cache / build / dist
+__pycache__/
+*.py[cod]
+*.pyo
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Robot Framework
+*.robot.xml
+*.output.xml
+*.log.html
+*.report.html
+*.tsv
+*.txt
+output.xml
+log.html
+report.html
+!requirements.txt
+
+# IDE config (PyCharm / VSCode)
+.idea/
+.vscode/
+
+# System files
+.DS_Store
+Thumbs.db
