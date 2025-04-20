@@ -1,7 +1,11 @@
 # Interaction with saucedemo website features
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from flow.constants import *
+from flow.constants import (
+    BASE_URL, USERNAME, PASSWORD,
+    FIRST_NAME, LAST_NAME, POSTAL_CODE,
+    BACKPACK_NAME, BACKPACK_SELECTOR
+)
 
 
 def login(browser, wait):
