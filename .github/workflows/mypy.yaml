@@ -21,4 +21,4 @@ jobs:
           pip install mypy
       - name: Analysing the code with mypy
         run: |
-          mypy task25/ --ignore-missing-imports --install-types --non-interactive --exclude venv 
+          mypy task25/ --explicit-package-bases --ignore-missing-imports --exclude 'task21|task24|venv'
