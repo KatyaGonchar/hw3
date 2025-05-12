@@ -20,11 +20,7 @@ def get_booking_by_id(booking_id):
     return requests.get(url)
 
 
-def delete_booking(booking_id):
-    token_response = get_token()
-    assert token_response.status_code == 200, "Failed to get token"
-    token = token_response.json()["token"]
-
+def delete_booking(booking_id, token):
     headers = {
         "Cookie": f"token={token}"
     }

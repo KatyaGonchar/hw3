@@ -1,6 +1,13 @@
 import pytest
-from utils.api import create_booking
+from utils.api import create_booking, get_token
 from utils.test_data import BOOKING_DATA
+
+
+@pytest.fixture(scope="session")
+def auth_token():
+    response = get_token()
+    assert response.status_code == 200, "Auth request failed"
+    return response.json()["token"]
 
 
 @pytest.fixture(scope="function")
