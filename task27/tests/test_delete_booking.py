@@ -1,6 +1,8 @@
 from utils.api import delete_booking, get_booking_by_id
+import allure
 
 
+@allure.feature("Delete booking")
 def test_delete_booking(created_booking, auth_token):
     booking_id = created_booking["booking_id"]
 

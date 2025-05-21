@@ -1,6 +1,8 @@
 from utils.api import delete_booking
+import allure
 
 
+@allure.feature("Delete booking")
 def test_delete_nonexistent_booking(auth_token):
     fake_booking_id = 00000
 
