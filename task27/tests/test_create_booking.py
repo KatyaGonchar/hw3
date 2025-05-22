@@ -2,8 +2,10 @@ from utils.api import create_booking
 from utils.test_data import BOOKING_DATA
 from utils.schemas import booking_schema
 from jsonschema import validate
+import allure
 
 
+@allure.feature("Create booking")
 def test_create_booking():
     response = create_booking(BOOKING_DATA)
 

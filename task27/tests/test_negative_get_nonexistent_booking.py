@@ -1,6 +1,8 @@
 from utils.api import get_booking_by_id
+import allure
 
 
+@allure.feature("Get booking")
 def test_get_nonexistent_booking():
     fake_booking_id = 000000
 

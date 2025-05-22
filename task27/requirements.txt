@@ -2,3 +2,4 @@ requests
 pytest
 jsonschema
 flake8
+allure-pytest
